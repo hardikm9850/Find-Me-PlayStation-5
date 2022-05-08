@@ -19,16 +19,19 @@ api = tweepy.API(auth)
 def get_tweets():
     
     # Define user ids 
+    # Define user ids 
     user_ids = {"thatMRFBat" : "1095283958",
     "amazonIndia" : "1282946089",
     "flipkart" : "57947109",
     "croma" : "54516116",
     "sony_india" : "43845681",
-    "reliance" : "146371658"
+    "reliance" : "146371658",
+    "Consoles_India":"1438818407592316930",
+    "icgoriginal":"1389191128713338885"
     }
                                                                                 #for time being
-    word_list = ['PS5', 'PlayStation','Play Station', 'Play Station 5','Play station','Messi']
-
+    word_list = ['PS5', 'PlayStation','Play Station', 'Play Station 5','Play station']
+    
     #create an array
     for index in user_ids.values():
 
