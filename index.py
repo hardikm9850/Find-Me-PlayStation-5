@@ -19,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
 			message = "Hello, stranger!"
 
 		self.wfile.write(message.encode())
-    checkTime()
+		#checkTime()
 		return
   
   def checkTime():
