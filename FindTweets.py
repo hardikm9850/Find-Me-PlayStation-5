@@ -7,6 +7,7 @@ import tweepy as tw
 import array as arr
 import Config
 import SendData
+from io import StringIO 
 
 # create OAuthHandler object
 auth = tweepy.OAuthHandler(Config.consumer_key, Config.consumer_secret)
