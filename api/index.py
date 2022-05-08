@@ -21,18 +21,3 @@ class handler(BaseHTTPRequestHandler):
 		self.wfile.write(message.encode())
 		#checkTime()
 		return
-  
-  def checkTime():
-    # This function runs periodically every 1 second
-    threading.Timer(1, checkTime).start()
-
-    now = datetime.now()
-
-    current_time = now.strftime("%H:%M:%S")
-    print("Current Time =", current_time)
-
-    if(current_time == '07:00:00'):  # check if matches with the desired time
-        print('checking tweets')
-        FindTweets.get_tweets()
-
-    return
