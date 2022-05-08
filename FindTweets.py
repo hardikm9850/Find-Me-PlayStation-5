@@ -16,6 +16,8 @@ auth.set_access_token(Config.access_token, Config.access_token_secret)
 # create tweepy API object to fetch tweets
 api = tweepy.API(auth)
 
+def create_sms(sms_body):
+    SendData.send_sms(sms_body)
 
 def get_tweets():
     
@@ -47,7 +49,7 @@ def get_tweets():
         for tww in fetched_tweets:
             if any(word in tww.text for word in word_list):
                 print(tww._json['user']['screen_name'])
-                stringBuilder.write("PS5 News from "+tww._json['user']['screen_name'])
+                stringBuilder.write("PS5 News from "+tww._json['user']['screen_name'+"\n"])
                 stringBuilder.write(tww._json['entities']['urls'][0]['expanded_url']+"\n")
                 stringBuilder.write(tww._json['created_at'])
                 create_sms(stringBuilder.getvalue())   
@@ -59,5 +61,3 @@ def get_tweets():
     # calling function to get tweets
 get_tweets()
 
-def create_sms(sms_body):
-    SendData.send_sms(sms_body)
