@@ -7,7 +7,7 @@ class handler(BaseHTTPRequestHandler):
   
     def checkTime(self):
       # This function runs periodically every 1 second
-      threading.Timer(1, checkTime).start()
+      threading.Timer(1, self.checkTime).start()
       now = datetime.now()
       current_time = now.strftime("%H:%M:%S")
       print("Current Time =", current_time)
@@ -23,10 +23,7 @@ class handler(BaseHTTPRequestHandler):
       self.send_header('Content-type','text/plain')
       self.end_headers()
       
-      if "name" in dic:
-        message = "Hello, " + dic["name"] + "!"
-      else:
-        message = "Hello, stranger!"
+      message = "Ab to PS5 Milna hi chahiye Lol"
 
       self.wfile.write(message.encode())
       self.checkTime()
