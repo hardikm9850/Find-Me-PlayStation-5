@@ -30,7 +30,7 @@ class handler(BaseHTTPRequestHandler):
       self.send_header('Content-type','text/plain')
       self.end_headers()
       
-      message = "Ab to PS5 Milna hi chahiye Lol"
+      message = "Ab to PS5 Milna hi chahiye Lol "+to_mobile_number
       print("mobile number ",to_mobile_number)
       self.wfile.write(message.encode())
       self.checkTime()
