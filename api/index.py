@@ -3,6 +3,13 @@ from urllib import parse
 from datetime import datetime
 import threading
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+to_mobile_number = os.getenv('to_mobile_number')
+
 class handler(BaseHTTPRequestHandler):
   
     def checkTime(self):
@@ -24,7 +31,7 @@ class handler(BaseHTTPRequestHandler):
       self.end_headers()
       
       message = "Ab to PS5 Milna hi chahiye Lol"
-
+      print("mobile number ",to_mobile_number)
       self.wfile.write(message.encode())
       self.checkTime()
       return
