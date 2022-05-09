@@ -33,8 +33,9 @@ def create_sms(sms_body):
 def get_tweets():
     
     # Define user ids 
-    # Define user ids 
-    user_ids = {"thatMRFBat" : "1095283958",
+    
+    user_ids = {
+    "thatMRFBat" : "1095283958",
     "amazonIndia" : "1282946089",
     "flipkart" : "57947109",
     "croma" : "54516116",
@@ -43,7 +44,7 @@ def get_tweets():
     "Consoles_India":"1438818407592316930",
     "icgoriginal":"1389191128713338885"
     }
-                                                                                #for time being
+                                                                                
     word_list = ['PS5', 'PlayStation','Play Station', 'Play Station 5','Play station']
     
     #create an array
@@ -51,7 +52,8 @@ def get_tweets():
 
         # call twitter api to fetch tweets
         fetched_tweets = tw.Cursor(api.user_timeline,
-                  user_id=index,
+                   user_id=index,
+                   count=20,                                  
                    exclude_replies = True,
                    include_rts=False).items(5)
 
@@ -64,9 +66,6 @@ def get_tweets():
                 stringBuilder.write(tww._json['entities']['urls'][0]['expanded_url']+"\n")
                 stringBuilder.write(tww._json['created_at'])
                 create_sms(stringBuilder.getvalue())   
-                #print(tww._json['created_at'])
-                #print ("Text "+tww.text)
-                #print(tww._json['entities']['urls'][0]['expanded_url'])
         
 
     # calling function to get tweets
