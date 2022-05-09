@@ -9,10 +9,21 @@ import Config
 import SendData
 from io import StringIO 
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+consumer_secret = os.getenv('consumer_secret')
+consumer_key = os.getenv('consumer_key')
+access_token = os.getenv('access_token')
+access_token_secret = os.getenv('access_token_secret')
+
+
 # create OAuthHandler object
-auth = tweepy.OAuthHandler(Config.consumer_key, Config.consumer_secret)
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 # set access token and secret
-auth.set_access_token(Config.access_token, Config.access_token_secret)
+auth.set_access_token(access_token, access_token_secret)
 # create tweepy API object to fetch tweets
 api = tweepy.API(auth)
 
