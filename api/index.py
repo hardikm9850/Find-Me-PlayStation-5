@@ -5,7 +5,7 @@ import threading
 
 class handler(BaseHTTPRequestHandler):
   
-    def checkTime():
+    def checkTime(self):
       # This function runs periodically every 1 second
       threading.Timer(1, checkTime).start()
       now = datetime.now()
@@ -29,5 +29,5 @@ class handler(BaseHTTPRequestHandler):
         message = "Hello, stranger!"
 
       self.wfile.write(message.encode())
-      checkTime()
+      self.checkTime()
       return
